@@ -30,3 +30,7 @@ for (const id of DIFFICULTY_ORDER) {
   btn.addEventListener("click", () => game.startMatch(id));
   grid.appendChild(btn);
 }
+
+if (new URLSearchParams(location.search).has("preview")) {
+  menu.hidden = true;
+}

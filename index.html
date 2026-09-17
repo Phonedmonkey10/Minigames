@@ -3,74 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini 8-Ball</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Minigames</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/hub.css" />
   </head>
   <body>
-    <div class="app">
-      <header class="top">
-        <div>
-          <h1>Mini 8-Ball</h1>
-          <p class="hint">Drag back from the cue ball to aim and set power. Release to shoot.</p>
-        </div>
-        <p id="status" class="status">Choose a bot difficulty to start.</p>
-      </header>
-
-      <div class="layout">
-        <div class="table-wrap">
-          <canvas id="table" width="972" height="522"></canvas>
-        </div>
-
-        <aside class="board" aria-label="Scoreboard">
-          <section class="card">
-            <h2>Match</h2>
-            <div class="scores">
-              <div class="score-row">
-                <span class="who you">You</span>
-                <strong id="player-wins">0</strong>
-              </div>
-            <div class="score-row">
-              <span class="who bot">Bot</span>
-              <strong id="bot-wins">0</strong>
-            </div>
-            <p class="diff-line">Difficulty <strong id="difficulty-label">—</strong></p>
-            </div>
-          </section>
-
-          <section class="card">
-            <h2>This rack</h2>
-            <dl class="meta">
-              <div><dt>Turn</dt><dd id="turn">You</dd></div>
-              <div><dt>Table</dt><dd id="groups">Open</dd></div>
-              <div><dt>Last shot</dt><dd id="last-shot">—</dd></div>
-            </dl>
-            <div class="groups-left">
-              <div>
-                <h3 id="player-group-label">You</h3>
-                <div id="player-balls" class="chips"></div>
-              </div>
-              <div>
-                <h3 id="bot-group-label">Bot</h3>
-                <div id="bot-balls" class="chips"></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="card actions">
-            <button type="button" id="new-rack">New rack</button>
-            <button type="button" id="reset-match" class="ghost">Change difficulty</button>
-          </section>
-        </aside>
+    <header class="site-header">
+      <div>
+        <p class="kicker" data-i18n="kicker">Browser arcade</p>
+        <h1 data-i18n="title">Minigames</h1>
       </div>
-    </div>
-
-    <div id="start-menu" class="menu" role="dialog" aria-labelledby="menu-title">
-      <div class="menu-card">
-        <h2 id="menu-title">Choose bot difficulty</h2>
-        <p class="menu-lead">Pick how hard the opponent plays. You can change this later with Change difficulty.</p>
-        <div id="difficulty-buttons" class="diff-grid"></div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
       </div>
-    </div>
-    <script type="module" src="js/main.js"></script>
+    </header>
+
+    <main>
+      <p class="lead" data-i18n="lead">
+        A small collection of games you can play in the browser. Pick a card to start.
+      </p>
+
+      <section class="grid" aria-label="Games">
+        <article class="card">
+          <a href="neon-clash/">
+            <img
+              src="assets/previews/neon-clash.png"
+              alt=""
+              width="1280"
+              height="720"
+            />
+            <div class="card-body">
+              <h2 data-i18n="neonTitle">Neon Clash</h2>
+              <p data-i18n="neonBlurb">
+                Rock, paper, scissors. Ten rounds against the computer.
+              </p>
+              <span class="play" data-i18n="play">Play</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="mini-8-ball/">
+            <img
+              src="assets/previews/mini-8-ball.png"
+              alt=""
+              width="1280"
+              height="720"
+            />
+            <div class="card-body">
+              <h2 data-i18n="poolTitle">Mini 8-Ball</h2>
+              <p data-i18n="poolBlurb">
+                8-ball pool against a bot. Drag back from the cue ball to shoot.
+              </p>
+              <span class="play" data-i18n="play">Play</span>
+            </div>
+          </a>
+        </article>
+      </section>
+    </main>
+    <script src="js/hub.js"></script>
   </body>
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Clash · Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+      <span class="blob blob-c"></span>
+    </div>
+
+    <main class="app">
+      <a class="hub-link" href="../" data-en="← All games" data-de="← Alle Spiele">← All games</a>
+      <header class="hero">
+        <p class="eyebrow">10-round showdown</p>
+        <h1>Neon Clash</h1>
+        <p class="subtitle">Rock · Paper · Scissors vs the Computer</p>
+      </header>
+
+      <section class="scoreboard" aria-label="Scoreboard">
+        <article class="score-card you">
+          <span class="score-label">You</span>
+          <strong id="player-score" class="score-value">0</strong>
+        </article>
+        <article class="round-card">
+          <span class="score-label">Round</span>
+          <strong id="round-label">1 / 10</strong>
+        </article>
+        <article class="score-card cpu">
+          <span class="score-label">Computer</span>
+          <strong id="cpu-score" class="score-value">0</strong>
+        </article>
+      </section>
+
+      <section class="arena" aria-live="polite">
+        <div class="fighter player">
+          <span class="fighter-name">You</span>
+          <div id="player-move" class="move-orb idle" data-move="">?</div>
+        </div>
+        <div class="vs-burst">VS</div>
+        <div class="fighter cpu">
+          <span class="fighter-name">CPU</span>
+          <div id="cpu-move" class="move-orb idle" data-move="">?</div>
+        </div>
+      </section>
+
+      <p id="status" class="status">Pick your move to start round 1</p>
+
+      <section class="choices" aria-label="Your move">
+        <button class="choice" data-choice="rock" aria-label="Rock">
+          <span class="choice-icon">✊</span>
+          <span>Rock</span>
+        </button>
+        <button class="choice" data-choice="paper" aria-label="Paper">
+          <span class="choice-icon">✋</span>
+          <span>Paper</span>
+        </button>
+        <button class="choice" data-choice="scissors" aria-label="Scissors">
+          <span class="choice-icon">✌️</span>
+          <span>Scissors</span>
+        </button>
+      </section>
+    </main>
+
+    <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="final-title">
+      <div class="modal">
+        <p id="final-kicker" class="modal-kicker">Game over</p>
+        <h2 id="final-title">You win!</h2>
+        <p id="final-score" class="modal-score">5 – 4</p>
+        <button id="restart-btn" type="button">Play again</button>
+      </div>
+    </div>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <script src="game.js"></script>
+    <script>
+      (function () {
+        const lang = localStorage.getItem("minigames-lang") || "en";
+        document.querySelectorAll(".hub-link").forEach((link) => {
+          link.textContent = link.dataset[lang] || link.dataset.en;
+        });
+      })();
+    </script>
+  </body>
+</html>
